@@ -19,6 +19,22 @@ function pathFind() {
         nodes[i].fScore = calculateFScore(nodes[i]);
         minFScore = Math.min(minFScore, nodes[i].fScore);
     };
+    for (var i = 0; i < nodes.length; i++) {
+       var dif = Math.abs(nodes[i].fScore -minFScore);
+
+       if(dif <= 10){
+nodes[i].block.color = "pink";
+       }else 
+       if(dif <= 20){
+nodes[i].block.color = "rgba(25, 255, 125, 1)";
+
+       }else 
+      {
+nodes[i].block.color = "rgba(25, 40, 255, 1)";
+
+       }
+    };
+
     //Choose the next node
     var nextNode = nodes.filter(minFScoreNode)[0];
     console.log(nodes.length);
